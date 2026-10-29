@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Vilary Aldino Egrea, S.Kom. | Frontend &amp; Fullstack Developer</title>
+  <meta name="title" content="Vilary Aldino Egrea, S.Kom. | Frontend &amp; Fullstack Developer">
+  <meta name="description" content="Portofolio resmi Vilary Aldino Egrea, S.Kom. Lulusan S1 Informatika Umsida (IPK 3.90). Spesialis Frontend & Fullstack Web Developer, Basis Data Relasional (Oracle 11g, MySQL), dan Jaringan (BNSP).">
+  <meta name="keywords" content="Vilary Aldino Egrea, Frontend Developer, Fullstack Developer, Web Developer Indonesia, Laravel, Oracle 11g, CodeIgniter, Umsida, Mikrotik">
+  <meta name="author" content="Vilary Aldino Egrea">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vilary Aldino Egrea, S.Kom. | Frontend &amp; Fullstack Developer">
+  <meta property="og:description" content="Portofolio resmi Vilary Aldino Egrea, S.Kom. Spesialis Frontend & Fullstack Web Developer, Basis Data Relasional, dan Jaringan.">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50%' y='63%' font-family='sans-serif' font-weight='700' font-size='48' fill='white' text-anchor='middle'>VA</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Subtle Linear Grid Background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       Header & Navigation Bar (Minimalist Floating Glass)
+       ======================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo" aria-label="Beranda Vilary Aldino Egrea">
+        <span class="logo-badge">VA</span>
+        <span>Vilary<span style="color: var(--accent-primary);">.dev</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Menu Utama">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Beranda</a></li>
+          <li><a href="#about" class="nav-link">Tentang</a></li>
+          <li><a href="#skills" class="nav-link">Keahlian</a></li>
+          <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
+          <li><a href="#contact" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items: Theme Switcher & Mobile Menu Trigger -->
+      <div class="nav-actions">
+        <!-- Dark/Light Theme Switcher -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Ganti tema tampilan (Terang / Gelap)" title="Ubah Tema Tampilan">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav" class="mobile-nav" aria-label="Menu Mobile">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link active">Beranda</a></li>
+      <li><a href="#about" class="mobile-nav-link">Tentang Saya</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Keahlian Teknis</a></li>
+      <li><a href="#portfolio" class="mobile-nav-link">Proyek &amp; Portofolio</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Hubungi Saya</a></li>
+    </ul>
+    <div style="margin-top: 1rem;">
+      <a href="https://wa.me/628570641128" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span>Chat WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ======================================================================
+         1. Hero Section
+         ====================================================================== -->
+    <section id="home" class="section hero-section">
+      <div class="container hero-grid">
+        <!-- Left Content -->
+        <div class="hero-content reveal">
+          <!-- Availability Badge -->
+          <div class="status-indicator">
+            <span class="pulse-dot"></span>
+            <span>Tersedia untuk Peluang Frontend &amp; Fullstack</span>
+          </div>
+
+          <!-- Name & Title -->
+          <div class="hero-name-wrapper">
+            <span class="hero-greeting">Halo, perkenalkan saya</span>
+            <h1 class="hero-name">Vilary Aldino Egrea, <span class="title-tag">S.Kom.</span></h1>
+          </div>
+
+          <!-- Headline with Typewriter animation -->
+          <h2 class="hero-headline">
+            <span id="typewriter-text" class="typewriter">Frontend &amp; Fullstack Developer</span>
+          </h2>
+
+          <!-- Hero Highlights Chips -->
+          <div class="hero-highlights-chips">
+            <span class="highlight-chip">
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span>S1 Informatika Umsida &bull; <strong>IPK 3.90</strong></span>
+            </span>
+            <span class="highlight-chip">
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              <span>Basis Data Relasional &bull; <strong>Oracle &amp; MySQL</strong></span>
+            </span>
+            <span class="highlight-chip">
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Sertifikasi BNSP 2026 &bull; <strong>Junior Network Admin</strong></span>
+            </span>
+          </div>
+
+          <p class="hero-summary">
+            Berfokus pada rekayasa antarmuka web modern, clean code, serta arsitektur backend yang tangguh. Memiliki rekam jejak kuat dalam merancang sistem basis data relasional kompleks hingga manajemen infrastruktur jaringan.
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#portfolio" class="btn btn-primary">
+              <span>Lihat Proyek Saya</span>
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Hubungi Saya</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social Media & Connect Channels -->
+          <div class="hero-socials">
+            <span class="social-label">Koneksi:</span>
+            <div class="social-links">
+              <!-- GitHub Link -->
+              <a href="https://github.com/vilaryaldino" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Profil GitHub" title="Kunjungi GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </a>
+              <!-- LinkedIn Link -->
+              <a href="https://linkedin.com/in/vilaryaldino" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Profil LinkedIn" title="Kunjungi LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <!-- WhatsApp Link -->
+              <a href="https://wa.me/628570641128" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp" title="WhatsApp: 08570641128">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </a>
+              <!-- Email Link -->
+              <a href="mailto:vilaryaldino@gmail.com" class="social-btn" aria-label="Email" title="Email: vilaryaldino@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Profile Photo Card (Clean Modern Portrait) -->
+        <div class="hero-photo-wrapper reveal">
+          <div class="profile-card">
+            <div class="profile-image-container">
+              <picture>
+                <source srcset="assets/img/profile.webp" type="image/webp">
+                <img src="assets/img/profile.jpg" alt="Vilary Aldino Egrea, S.Kom." class="profile-img" width="960" height="1200" loading="eager">
+              </picture>
+            </div>
+
+            <!-- Floating Credential Badges -->
+            <div class="floating-badge badge-top">
+              <div class="badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div class="badge-content">
+                <span class="badge-title">S1 Informatika Umsida</span>
+                <span class="badge-subtitle">IPK 3.90 &bull; Kelulusan Terpuji</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom">
+              <div class="badge-icon icon-cert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="badge-content">
+                <span class="badge-title">Junior Network Admin</span>
+                <span class="badge-subtitle">Sertifikasi BNSP 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. Tentang Saya (About Section)
+         ====================================================================== -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header reveal">
+          <span class="section-badge">Profil Profesional</span>
+          <h2 class="section-title">Tentang Saya</h2>
+          <p class="section-subtitle">
+            Kombinasi keahlian rekayasa perangkat lunak modern, pemodelan basis data relasional enterprise, serta keandalan infrastruktur jaringan.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Main Narrative Card -->
+          <div class="about-card-main reveal">
+            <p class="about-paragraph">
+              Saya adalah lulusan <strong>S1 Informatika dari Universitas Muhammadiyah Sidoarjo</strong> dengan capaian akademik <strong>IPK 3.90</strong>. Memiliki fokus yang mendalam pada pengembangan website, baik pada sisi <strong>Frontend</strong> maupun <strong>Fullstack</strong>.
+            </p>
+            <p class="about-paragraph">
+              Rekam jejak saya mencakup perancangan dan implementasi aplikasi berbasis <strong>basis data relasional</strong> berskala enterprise (termasuk Oracle Database 11g dengan penanganan sequence dan transaksi faktur terstruktur, serta MySQL), hingga pengelolaan dan konfigurasi <strong>infrastruktur jaringan</strong> yang telah tersertifikasi secara resmi oleh <strong>BNSP</strong>.
+            </p>
+
+            <!-- Key Strengths List -->
+            <ul class="about-highlights-list">
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="about-item-text">
+                  <h4>Frontend &amp; Fullstack Engineering</h4>
+                  <p>Membangun antarmuka pengguna responsif, intuitif, berkinerja tinggi, dan terhubung dengan backend yang tangguh.</p>
+                </div>
+              </li>
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div class="about-item-text">
+                  <h4>Arsitektur Basis Data Relasional</h4>
+                  <p>Mahir dalam normalisasi skema (3NF), sequence handling, trigger, stored procedure PL/SQL, dan query optimization.</p>
+                </div>
+              </li>
+
+              <li class="about-item">
+                <div class="about-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div class="about-item-text">
+                  <h4>Infrastruktur &amp; Administrasi Jaringan</h4>
+                  <p>Konfigurasi router Mikrotik, topologi jaringan LAN, routing, firewall, serta instalasi sistem CCTV keamanan terpadu.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Metrics / Numbers Grid -->
+          <div class="about-metrics-grid reveal">
+            <div class="metric-card">
+              <div class="metric-number">3.90</div>
+              <div class="metric-label">Indeks Prestasi Kumulatif (IPK Umsida)</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-number">BNSP</div>
+              <div class="metric-label">Sertifikasi Junior Network Admin (2026)</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-number">100%</div>
+              <div class="metric-label">Komitmen pada Clean Code &amp; Best Practices</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-number">3+</div>
+              <div class="metric-label">Proyek Utama Skala Enterprise &amp; Institusi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. Keahlian (Skills Section - Clean Grid Cards)
+         ====================================================================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header reveal">
+          <span class="section-badge">Kompetensi &amp; Teknologi</span>
+          <h2 class="section-title">Keahlian Teknis</h2>
+          <p class="section-subtitle">
+            Kumpulan teknologi dan kemampuan teknis yang saya gunakan dalam mengembangkan solusi digital end-to-end.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Card 1: Web Development -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="category-title">Web Development</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Frontend &amp; Backend</span>
+              </div>
+            </div>
+            <p class="category-desc">
+              Pengembangan website responsif, arsitektur MVC modern, REST API, serta integrasi basis data relasional tingkat lanjut.
+            </p>
+            <div class="skill-badges-container">
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                <span>PHP</span>
+              </span>
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/></svg>
+                <span>Laravel</span>
+              </span>
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>CodeIgniter</span>
+              </span>
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                <span>MySQL</span>
+              </span>
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>Oracle 11g</span>
+              </span>
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                <span>Eloquent ORM</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 2: Infrastruktur & Jaringan -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <div>
+                <h3 class="category-title">Infrastruktur &amp; Jaringan</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Networking &amp; Hardware</span>
+              </div>
+            </div>
+            <p class="category-desc">
+              Manajemen jaringan komputer, konfigurasi perangkat router/switch, keamanan data fisik &amp; digital, serta pengawasan CCTV.
+            </p>
+            <div class="skill-badges-container">
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                <span>Mikrotik</span>
+              </span>
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>Instalasi CCTV</span>
+              </span>
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Junior Network Administrator (BNSP 2026)</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 3: Tools & Workflow -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div>
+                <h3 class="category-title">Tools &amp; Workflow</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Environment</span>
+              </div>
+            </div>
+            <p class="category-desc">
+              Peralatan kerja dan workflow pengembangan software untuk version control terarah, staging server lokal, dan administrasi database.
+            </p>
+            <div class="skill-badges-container">
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+                <span>Git</span>
+              </span>
+              <span class="skill-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span>XAMPP</span>
+              </span>
+              <span class="skill-badge featured">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                <span>PL/SQL Developer</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. Pengalaman & Proyek (Portfolio Section)
+         ====================================================================== -->
+    <section id="portfolio" class="section section-alt">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header reveal">
+          <span class="section-badge">Hasil Karya Nyata</span>
+          <h2 class="section-title">Pengalaman &amp; Proyek</h2>
+          <p class="section-subtitle">
+            Daftar aplikasi dan sistem yang telah saya kembangkan dengan fokus pada performa, integritas data, dan pengalaman pengguna optimal.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyek 1: Sistem Manajemen Gudang -->
+          <article class="project-card reveal">
+            <div class="project-banner">
+              <span class="project-type-tag">Enterprise Solution</span>
+              <div class="banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <h3 class="project-title">Sistem Manajemen Gudang</h3>
+              <p class="project-desc">
+                Aplikasi pencatatan inventaris keluar/masuk menggunakan <strong>Laravel</strong> dan <strong>Oracle Database</strong>, lengkap dengan modul Faktur Pembelian dan implementasi <em>sequence handling</em> untuk otomasi penomoran transaksi.
+              </p>
+
+              <!-- Feature Highlights Box -->
+              <div class="project-highlights">
+                <p><strong>Highlight:</strong> Oracle 11g sequence generator, audit trail stok barang, modul faktur multi-item, dan transaksi aman ACID.</p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="project-tags">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">Oracle Database</span>
+                <span class="project-tag">Eloquent ORM</span>
+                <span class="project-tag">PL/SQL</span>
+              </div>
+
+              <!-- Action Trigger -->
+              <div class="project-actions">
+                <button type="button" class="btn btn-secondary btn-sm" data-project-key="gudang" aria-haspopup="dialog">
+                  <span>Lihat Detail Arsitektur</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyek 2: Web Company Profile (ACWA International) -->
+          <article class="project-card reveal">
+            <div class="project-banner">
+              <span class="project-type-tag">Corporate Website</span>
+              <div class="banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <h3 class="project-title">Web Company Profile (ACWA International)</h3>
+              <p class="project-desc">
+                Pengembangan website profil perusahaan komprehensif menggunakan <strong>PHP</strong>, <strong>CodeIgniter</strong>, dan basis data <strong>MySQL</strong> untuk memvisualisasikan kredibilitas bisnis dan katalog layanan.
+              </p>
+
+              <!-- Feature Highlights Box -->
+              <div class="project-highlights">
+                <p><strong>Highlight:</strong> Arsitektur MVC adaptif, antarmuka responsif lintas perangkat, dashboard dinamis, dan kecepatan muat optimal.</p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="project-tags">
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">CodeIgniter</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">Responsive UI</span>
+              </div>
+
+              <!-- Action Trigger -->
+              <div class="project-actions">
+                <button type="button" class="btn btn-secondary btn-sm" data-project-key="acwa" aria-haspopup="dialog">
+                  <span>Lihat Detail Arsitektur</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyek 3: Sistem Informasi Profil Sekolah -->
+          <article class="project-card reveal">
+            <div class="project-banner">
+              <span class="project-type-tag">Fullstack System</span>
+              <div class="banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <h3 class="project-title">Sistem Informasi Profil Sekolah</h3>
+              <p class="project-desc">
+                Pengembangan basis data relasional dan sistem informasi (Fullstack) untuk digitalisasi manajemen informasi sekolah, direktori tenaga pengajar, serta portal transparansi akademik.
+              </p>
+
+              <!-- Feature Highlights Box -->
+              <div class="project-highlights">
+                <p><strong>Highlight:</strong> Normalisasi basis data, modul hak akses bertingkat (RBAC), portal pengumuman berita sekolah, dan kemudahan akses wali murid.</p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="project-tags">
+                <span class="project-tag">Fullstack Web</span>
+                <span class="project-tag">Database Design</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">PHP</span>
+              </div>
+
+              <!-- Action Trigger -->
+              <div class="project-actions">
+                <button type="button" class="btn btn-secondary btn-sm" data-project-key="sekolah" aria-haspopup="dialog">
+                  <span>Lihat Detail Arsitektur</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. Kontak (Contact Section)
+         ====================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header reveal">
+          <span class="section-badge">Mari Berkolaborasi</span>
+          <h2 class="section-title">Hubungi Saya</h2>
+          <p class="section-subtitle">
+            Tertarik untuk merekrut, mendiskusikan peluang kerja, atau berkolaborasi dalam proyek web development? Silakan hubungi saya melalui jalur di bawah.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Contact Cards Column -->
+          <div class="contact-info-column reveal">
+            <!-- Email Card with Copy button -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-card-title">Alamat Email</span>
+                <a href="mailto:vilaryaldino@gmail.com" class="contact-card-value" title="Kirim email langsung">vilaryaldino@gmail.com</a>
+              </div>
+              <button type="button" class="copy-btn" data-copy="vilaryaldino@gmail.com" data-label="Alamat Email" title="Salin Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+
+            <!-- WhatsApp Card with Direct Chat -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-card-title">Nomor WhatsApp</span>
+                <a href="https://wa.me/628570641128" target="_blank" rel="noopener noreferrer" class="contact-card-value" title="Chat WhatsApp Langsung">08570641128</a>
+              </div>
+              <button type="button" class="copy-btn" data-copy="08570641128" data-label="Nomor WhatsApp" title="Salin WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+
+            <!-- GitHub Profile Card -->
+            <a href="https://github.com/vilaryaldino" target="_blank" rel="noopener noreferrer" class="contact-card" title="Buka Profil GitHub">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-card-title">GitHub Repository</span>
+                <span class="contact-card-value">github.com/vilaryaldino</span>
+              </div>
+              <span style="color: var(--text-muted); font-size: 1.1rem;">&rarr;</span>
+            </a>
+
+            <!-- LinkedIn Profile Card -->
+            <a href="https://linkedin.com/in/vilaryaldino" target="_blank" rel="noopener noreferrer" class="contact-card" title="Buka Profil LinkedIn">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <span class="contact-card-title">LinkedIn Network</span>
+                <span class="contact-card-value">linkedin.com/in/vilaryaldino</span>
+              </div>
+              <span style="color: var(--text-muted); font-size: 1.1rem;">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Interactive Message Form -->
+          <div class="contact-form-card reveal">
+            <h3 class="form-title">Kirim Pesan Langsung</h3>
+            <p class="form-subtitle">Pilih saluran pengiriman dan kirimkan pertanyaan atau tawaran kerja secara langsung.</p>
+
+            <!-- Channel Selector Tabs -->
+            <div class="form-channel-selector" role="radiogroup" aria-label="Metode Pengiriman">
+              <button type="button" id="channel-wa-btn" class="channel-btn active" role="radio" aria-checked="true">
+                <svg style="width:16px;height:16px;" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>Via WhatsApp (Fast)</span>
+              </button>
+              <button type="button" id="channel-email-btn" class="channel-btn" role="radio" aria-checked="false">
+                <svg style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span>Via Email Client</span>
+              </button>
+            </div>
+
+            <form id="contact-form" autocomplete="on">
+              <div class="form-group">
+                <label for="sender-name" class="form-label">Nama Lengkap *</label>
+                <input type="text" id="sender-name" class="form-input" placeholder="Masukkan nama Anda" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-contact" class="form-label">Email atau WhatsApp *</label>
+                <input type="text" id="sender-contact" class="form-input" placeholder="contoh: nama@perusahaan.com atau 0812..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-subject" class="form-label">Subjek / Topik</label>
+                <input type="text" id="sender-subject" class="form-input" placeholder="Peluang Kerja / Pengembangan Web / Kolaborasi">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message" class="form-label">Pesan Anda *</label>
+                <textarea id="sender-message" class="form-textarea" placeholder="Tuliskan detail pesan, kebutuhan proyek, atau tawaran kerja..." required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  <span>Kirim Pesan Sekarang</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo" style="margin-bottom: 0.5rem;">
+            <span class="logo-badge">VA</span>
+            <span>Vilary<span style="color: var(--accent-primary);">.dev</span></span>
+          </a>
+          <p class="footer-desc">
+            Website portofolio resmi Vilary Aldino Egrea, S.Kom. Berfokus pada pengembangan website modern, basis data relasional enterprise, dan keandalan jaringan.
+          </p>
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Lulusan S1 Informatika Umsida (IPK 3.90) &bull; BNSP 2026
+          </div>
+        </div>
+
+        <!-- Quick Navigation Links -->
+        <div class="footer-links-group">
+          <h4>Navigasi</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-link">Beranda</a></li>
+            <li><a href="#about" class="footer-link">Tentang Saya</a></li>
+            <li><a href="#skills" class="footer-link">Keahlian Teknis</a></li>
+            <li><a href="#portfolio" class="footer-link">Proyek Portofolio</a></li>
+            <li><a href="#contact" class="footer-link">Kontak Langsung</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Connections -->
+        <div class="footer-links-group">
+          <h4>Koneksi</h4>
+          <ul class="footer-links-list">
+            <li><a href="mailto:vilaryaldino@gmail.com" class="footer-link">vilaryaldino@gmail.com</a></li>
+            <li><a href="https://wa.me/628570641128" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp: 08570641128</a></li>
+            <li><a href="https://github.com/vilaryaldino" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Profile</a></li>
+            <li><a href="https://linkedin.com/in/vilaryaldino" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn Profile</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>Vilary Aldino Egrea, S.Kom.</strong> Hak cipta dilindungi undang-undang.
+        </div>
+        <button id="back-to-top-btn" class="back-to-top-btn" type="button" aria-label="Kembali ke atas halaman">
+          <span>Kembali ke Atas</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Interactive Modal for Project Architecture Details
+       ======================================================================== -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Tutup jendela detail proyek">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="modal-body-content">
+        <!-- Content injected dynamically via main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container for Notifications -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Vanilla JavaScript Controller -->
+  <script src="js/main.js"></script>
+</body>
+</html>
