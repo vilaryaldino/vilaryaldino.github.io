@@ -440,7 +440,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     11. Back to Top Button
+     11. Interactive 3D Tilt Effect for Bento Cards
+     -------------------------------------------------------------------------- */
+  const tiltElements = document.querySelectorAll('[data-tilt]');
+  if (window.matchMedia('(pointer: fine)').matches) {
+    tiltElements.forEach(el => {
+      let isHovered = false;
+
+      el.addEventListener('mouseenter', () => {
+        isHovered = true;
+        el.style.transition = 'transform 0.1s ease-out, border-color 0.2s ease, box-shadow 0.2s ease';
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        if (!isHovered) return;
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5.5;
+        const rotateY = ((x - centerX) / centerX) * 5.5;
+
+        el.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        isHovered = false;
+        el.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease';
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     12. Back to Top Button
      -------------------------------------------------------------------------- */
   const backToTopBtn = document.getElementById('back-to-top-btn');
   if (backToTopBtn) {

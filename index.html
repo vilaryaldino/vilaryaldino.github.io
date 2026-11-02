@@ -112,12 +112,15 @@
          ====================================================================== -->
     <section id="home" class="section hero-section">
       <div class="container hero-grid">
-        <!-- Left Content -->
+        <!-- Left Column: Content & Actions -->
         <div class="hero-content reveal">
-          <!-- Availability Badge -->
+          <!-- Live Radar Pulse Status -->
           <div class="status-indicator">
-            <span class="pulse-dot"></span>
-            <span>Tersedia untuk Peluang Frontend &amp; Fullstack</span>
+            <span class="radar-dot">
+              <span class="radar-ping"></span>
+              <span class="radar-core"></span>
+            </span>
+            <span>Tersedia untuk Peluang Fullstack &amp; Frontend</span>
           </div>
 
           <!-- Name & Title -->
@@ -131,47 +134,47 @@
             <span id="typewriter-text" class="typewriter">Frontend &amp; Fullstack Developer</span>
           </h2>
 
-          <!-- Hero Highlights Chips -->
-          <div class="hero-highlights-chips">
-            <span class="highlight-chip">
-              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              <span>S1 Informatika Umsida &bull; <strong>IPK 3.90</strong></span>
+          <p class="hero-summary">
+            Software engineer dengan fokus pada rekayasa web modern, performa tinggi, perancangan basis data relasional enterprise (Oracle 11g &amp; MySQL), serta keandalan infrastruktur jaringan tersertifikasi BNSP.
+          </p>
+
+          <!-- Core Value Badges -->
+          <div class="hero-core-tags">
+            <span class="core-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span>Clean Code &amp; MVC</span>
             </span>
-            <span class="highlight-chip">
-              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-              <span>Basis Data Relasional &bull; <strong>Oracle &amp; MySQL</strong></span>
+            <span class="core-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <span>Relational DB Architect</span>
             </span>
-            <span class="highlight-chip">
-              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span>Sertifikasi BNSP 2026 &bull; <strong>Junior Network Admin</strong></span>
+            <span class="core-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Network Infra Certified</span>
             </span>
           </div>
 
-          <p class="hero-summary">
-            Berfokus pada rekayasa antarmuka web modern, clean code, serta arsitektur backend yang tangguh. Memiliki rekam jejak kuat dalam merancang sistem basis data relasional kompleks hingga manajemen infrastruktur jaringan.
-          </p>
-
           <!-- Call to Action Buttons -->
           <div class="hero-cta-group">
-            <a href="#portfolio" class="btn btn-primary">
-              <span>Lihat Proyek Saya</span>
+            <a href="#portfolio" class="btn btn-primary btn-cta">
+              <span>Lihat Proyek Pilihan</span>
               <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="#contact" class="btn btn-secondary">
-              <span>Hubungi Saya</span>
+            <a href="#contact" class="btn btn-secondary btn-cta">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
+              <span>Hubungi Saya</span>
             </a>
           </div>
 
           <!-- Social Media & Connect Channels -->
           <div class="hero-socials">
-            <span class="social-label">Koneksi:</span>
+            <span class="social-label">Koneksi Cepat:</span>
             <div class="social-links">
               <!-- GitHub Link -->
               <a href="https://github.com/vilaryaldino" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Profil GitHub" title="Kunjungi GitHub">
@@ -202,34 +205,63 @@
           </div>
         </div>
 
-        <!-- Right Profile Photo Card (Clean Modern Portrait) -->
-        <div class="hero-photo-wrapper reveal">
-          <div class="profile-card">
-            <div class="profile-image-container">
-              <picture>
-                <source srcset="assets/img/profile.webp" type="image/webp">
-                <img src="assets/img/profileku.png" alt="Vilary Aldino Egrea, S.Kom." class="profile-img" width="960" height="1200" loading="eager">
-              </picture>
-            </div>
-
-            <!-- Floating Credential Badges -->
-            <div class="floating-badge badge-top">
-              <div class="badge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <div class="badge-content">
-                <span class="badge-title">S1 Informatika Umsida</span>
-                <span class="badge-subtitle">IPK 3.90 &bull; Kelulusan Terpuji</span>
+        <!-- Right Column: Interactive Bento Grid Showcase -->
+        <div class="hero-bento-wrapper reveal">
+          <div class="bento-grid">
+            <!-- Bento Item 1: Full-Body Studio Portrait (Zero Overlap, Spotlight Frame) -->
+            <div class="bento-item bento-item-photo" data-tilt>
+              <div class="bento-photo-container">
+                <img src="assets/img/profileku.png" alt="Vilary Aldino Egrea, S.Kom." class="bento-photo-img" width="1024" height="1536" loading="eager">
+                <div class="bento-photo-pill">
+                  <span class="live-dot"></span>
+                  <span>Vilary Aldino &bull; Fullstack</span>
+                </div>
               </div>
             </div>
 
-            <div class="floating-badge badge-bottom">
-              <div class="badge-icon icon-cert">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <!-- Bento Item 2: Academic Honors Widget -->
+            <div class="bento-item bento-item-stat" data-tilt>
+              <div class="bento-stat-top">
+                <div class="bento-icon-wrapper icon-edu">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <span class="bento-tag">S1 Informatika</span>
               </div>
-              <div class="badge-content">
-                <span class="badge-title">Junior Network Admin</span>
-                <span class="badge-subtitle">Sertifikasi BNSP 2026</span>
+              <div class="bento-stat-main">
+                <span class="bento-stat-value">3.90</span>
+                <span class="bento-stat-unit">/ 4.00</span>
+              </div>
+              <h4 class="bento-stat-title">Universitas Muhammadiyah Sidoarjo</h4>
+              <p class="bento-stat-sub">Predikat Kelulusan Terpuji (Cumlaude)</p>
+            </div>
+
+            <!-- Bento Item 3: Professional Certification Widget -->
+            <div class="bento-item bento-item-cert" data-tilt>
+              <div class="bento-stat-top">
+                <div class="bento-icon-wrapper icon-cert">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                </div>
+                <span class="bento-tag tag-success">BNSP Certified</span>
+              </div>
+              <h4 class="bento-cert-title">Junior Network Admin</h4>
+              <p class="bento-cert-sub">Kompetensi 2026 &bull; Mikrotik, Topologi LAN &amp; CCTV</p>
+            </div>
+
+            <!-- Bento Item 4: Interactive Stack & Focus Strip -->
+            <div class="bento-item bento-item-stack" data-tilt>
+              <div class="bento-stack-header">
+                <span class="bento-stack-label">CORE STACK &amp; DATABASE</span>
+                <span class="bento-badge-live">Active</span>
+              </div>
+              <div class="bento-pills-flow">
+                <span class="bento-pill">PHP</span>
+                <span class="bento-pill pill-featured">Laravel</span>
+                <span class="bento-pill">CodeIgniter</span>
+                <span class="bento-pill pill-featured">Oracle 11g</span>
+                <span class="bento-pill">MySQL</span>
+                <span class="bento-pill">Eloquent</span>
+                <span class="bento-pill">Mikrotik</span>
+                <span class="bento-pill">Git</span>
               </div>
             </div>
           </div>
