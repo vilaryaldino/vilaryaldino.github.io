@@ -1305,6 +1305,28 @@ button, input, textarea {
   align-items: center;
   gap: 0.65rem;
   margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.project-actions .btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.project-actions .btn-github {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.project-actions .btn-github:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-hover);
+  color: var(--accent-primary);
 }
 
 /* --------------------------------------------------------------------------
@@ -1723,7 +1745,7 @@ button, input, textarea {
   }
 
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .contact-grid {
@@ -1737,6 +1759,10 @@ button, input, textarea {
 }
 
 @media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .nav-links {
     display: flex;
   }

@@ -11,6 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Project Data Store for Interactive Modal ---
   const projectDatabase = {
+    sks: {
+      title: 'Sistem Manajemen Keuangan Siswa (SKS-Aisyiyah)',
+      category: 'School Administration & Finance System',
+      tech: ['CodeIgniter 4', 'PHP 8.x', 'MySQL', 'Bootstrap 5', 'PhpSpreadsheet', 'SweetAlert2', 'JavaScript'],
+      summary: 'Aplikasi web tata kelola administrasi keuangan dan operasional sekolah terpadu di TK Aisyiyah 6 Candi. Mempermudah pencatatan pembayaran tagihan siswa, rekonsiliasi kas, serta transparansi finansial bagi wali murid.',
+      features: [
+        'Manajemen pos pembayaran siswa terstruktur: SPP bulanan, DPP (Uang Gedung), biaya seragam, pendaftaran murid baru, dan kegiatan sekolah.',
+        'Fitur Import & Export data siswa serta mutasi pembayaran secara massal melalui file Excel dengan pustaka PhpSpreadsheet.',
+        'Penerbitan kuitansi transaksi instan, slip rincian pembayaran, dan laporan rekapitulasi tunggakan siswa otomatis.',
+        'Pencatatan kas operasional sekolah (arus kas masuk & keluar) dengan integrasi alokasi insentif tenaga pendidik.',
+        'Portal monitoring status keuangan siswa yang transparan dan dapat dipantau langsung oleh orang tua / wali murid.'
+      ],
+      role: 'Fullstack Web Developer & Database Designer',
+      status: 'Production / Deployed',
+      githubUrl: 'https://github.com/vilaryaldino/SKS-Aisyiyah'
+    },
     gudang: {
       title: 'Sistem Manajemen Gudang',
       category: 'Enterprise Web Application',
@@ -24,7 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'Reporting dan ekspor rekap inventaris berkala ke format PDF / Excel.'
       ],
       role: 'Fullstack Developer & Database Architect',
-      status: 'Selesai & Teruji'
+      status: 'Selesai & Teruji',
+      githubUrl: 'https://github.com/vilaryaldino/Inventaris-Gudang'
+    },
+    payroll: {
+      title: 'Sistem Payroll HRD',
+      category: 'Human Resource & Payroll Management',
+      tech: ['Laravel', 'PHP 8.x', 'MySQL', 'Blade Engine', 'Vite', 'JavaScript', 'Excel Import Engine'],
+      summary: 'Sistem otomasi penggajian (payroll) dan manajemen kepegawaian perusahaan berbasis web untuk memproses data presensi, kompensasi kerja lembur, tunjangan kehadiran, dan pelaporan slip gaji secara presisi.',
+      features: [
+        'Manajemen master data karyawan, divisi perusahaan, kalender hari libur, dan jadwal multi-shift kerja yang dinamis.',
+        'Modul presensi kehadiran komprehensif: input manual, pencatatan surat tugas dinas luar, serta import absensi log Excel.',
+        'Otomasi Surat Perintah Lembur (SPL) dengan kalkulasi perhitungan kompensasi jam kerja lembur otomatis & manual.',
+        'Perhitungan tunjangan kehadiran & uang makan otomatis yang terkalibrasi dengan kepatuhan jam kerja aktual.',
+        'Cetak slip lembur & rekapitulasi gaji karyawan terintegrasi, siap pakai untuk kebutuhan audit HRD dan bagian akuntansi.'
+      ],
+      role: 'Fullstack Laravel Developer & System Analyst',
+      status: 'Selesai & Teruji',
+      githubUrl: 'https://github.com/vilaryaldino/PayrollHRD'
     },
     acwa: {
       title: 'Web Company Profile (ACWA International)',
@@ -396,12 +429,23 @@ document.addEventListener('DOMContentLoaded', () => {
         </ul>
       </div>
 
-      <div>
+      <div style="margin-bottom: 1.25rem;">
         <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;">Teknologi Terkait:</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
           ${project.tech.map(t => `<span class="project-tag" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25); color: var(--accent-cyan);">${escapeHtml(t)}</span>`).join('')}
         </div>
       </div>
+
+      ${project.githubUrl ? `
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
+          <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>Buka Source Code di GitHub</span>
+          </a>
+        </div>
+      ` : ''}
     `;
 
     modalOverlay.classList.add('open');
@@ -414,11 +458,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  detailButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
+  // Event delegation for opening project modals
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-project-key]');
+    if (btn) {
       const key = btn.getAttribute('data-project-key');
       openProjectModal(key);
-    });
+    }
   });
 
   if (modalCloseBtn) {
