@@ -11,42 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Project Data Store for Interactive Modal ---
   const projectDatabase = {
+    gudang: {
+      title: 'Sistem Manajemen Gudang (GudangKu)',
+      category: 'Enterprise Solution & Logistics',
+      tech: ['Laravel', 'Oracle 11g', 'OCI8 Active', 'Eloquent ORM', 'PL/SQL', 'Bootstrap', 'JavaScript'],
+      image: 'assets/img/gudangku-preview.webp',
+      summary: 'Aplikasi pencatatan inventaris dan distribusi logistik pergudangan skala enterprise menggunakan Laravel dan basis data Oracle 11g (OCI8). Dirancang dengan jaminan integritas transaksi tinggi dan kepatuhan ACID.',
+      features: [
+        'Otomasi Sequence Penomoran Transaksi: Penomoran unik otomatis berformat enterprise standar (format BK-YYYYMMDD-001 untuk Pengeluaran Barang / Surat Jalan dan format FB untuk Faktur Pembelian).',
+        'Konektivitas Dedicated Oracle 11g (OCI8 Active): Integrasi koneksi langsung Laravel ke database Oracle 11g dengan schema relasional teruji dan performa query teroptimasi.',
+        'Modul Pengeluaran Barang (Surat Jalan Distribusi): Alokasi logistik pengeluaran barang multi-item langsung dari katalog master item siap distribusi.',
+        'Modul Faktur Pembelian (Barang Masuk): Pencatatan dan verifikasi faktur pengadaan barang dari rekanan supplier dengan auto-update saldo persediaan.',
+        'Audit Mutasi & Kontrol Stok Fisik: Pemantauan pergerakan barang real-time melalui Kartu Mutasi Stok guna mencegah selisih persediaan fisik di gudang.'
+      ],
+      role: 'Fullstack Developer & Database Architect',
+      status: 'Selesai & Teruji'
+    },
     sks: {
       title: 'Sistem Manajemen Keuangan Siswa (SKS-Aisyiyah)',
       category: 'School Administration & Finance System',
-      tech: ['CodeIgniter 4', 'PHP 8.x', 'MySQL', 'Bootstrap 5', 'PhpSpreadsheet', 'SweetAlert2', 'JavaScript'],
-      summary: 'Aplikasi web tata kelola administrasi keuangan dan operasional sekolah terpadu di TK Aisyiyah 6 Candi. Mempermudah pencatatan pembayaran tagihan siswa, rekonsiliasi kas, serta transparansi finansial bagi wali murid.',
+      tech: ['CodeIgniter 4', 'PHP 8.x', 'MySQL', 'Bootstrap 5', 'Dashboard KPI', 'SweetAlert2', 'JavaScript'],
+      image: 'assets/img/sks-preview.webp',
+      summary: 'Aplikasi web tata kelola administrasi keuangan dan operasional sekolah terpadu di PG TK \'Aisyiyah VI Candi. Menghadirkan transparansi finansial, otomasi rekonsiliasi kas, pelaporan laba/rugi, serta monitoring real-time tunggakan siswa.',
       features: [
-        'Manajemen pos pembayaran siswa terstruktur: SPP bulanan, DPP (Uang Gedung), biaya seragam, pendaftaran murid baru, dan kegiatan sekolah.',
-        'Fitur Import & Export data siswa serta mutasi pembayaran secara massal melalui file Excel dengan pustaka PhpSpreadsheet.',
-        'Penerbitan kuitansi transaksi instan, slip rincian pembayaran, dan laporan rekapitulasi tunggakan siswa otomatis.',
-        'Pencatatan kas operasional sekolah (arus kas masuk & keluar) dengan integrasi alokasi insentif tenaga pendidik.',
-        'Portal monitoring status keuangan siswa yang transparan dan dapat dipantau langsung oleh orang tua / wali murid.'
+        'Dashboard Eksekutif & KPI Finansial Real-Time: Visualisasi metrik kunci mencakup jumlah siswa aktif, volume transaksi masuk, dan perhitungan otomatis total piutang/tunggakan belum lunas.',
+        'Laporan Keuangan Sekolah (Laba / Rugi): Perhitungan matematis neraca arus kas (total pendapatan/uang masuk vs total pengeluaran belanja sekolah) dengan kalkulasi saldo bersih akurat.',
+        'Otomasi Cetak Laporan Lengkap: Fitur cetak rekapitulasi finansial komprehensif seluruh pos anggaran (biaya pendaftaran siswa baru, SPP bulanan, dan kas) hanya dengan satu klik.',
+        'Manajemen Pengeluaran & Slip Gaji Guru: Pencatatan beban belanja operasional sekolah serta modul penerbitan slip insentif dan gaji tenaga pendidik terintegrasi.',
+        'Grafik Analisis Tren Keuangan: Visualisasi grafik interaktif tren arus kas masuk mingguan/tahunan dan perbandingan statistik pendapatan vs belanja operasional.'
       ],
       role: 'Fullstack Web Developer & Database Designer',
-      status: 'Production / Deployed',
-      githubUrl: 'https://github.com/vilaryaldino/SKS-Aisyiyah'
-    },
-    gudang: {
-      title: 'Sistem Manajemen Gudang',
-      category: 'Enterprise Web Application',
-      tech: ['Laravel', 'Oracle 11g', 'Eloquent ORM', 'PL/SQL', 'Bootstrap', 'JavaScript'],
-      summary: 'Aplikasi pencatatan inventaris keluar/masuk skala enterprise menggunakan Laravel dan Oracle Database, dirancang untuk menangani integritas transaksi tinggi.',
-      features: [
-        'Fitur pembuatan Faktur Pembelian (Purchase Invoice) dan Surat Jalan multi-item otomatis.',
-        'Implementasi sequence handling pada Oracle 11g untuk auto-increment kode invoice dan SKU unik.',
-        'Manajemen stok otomatis dengan audit trail pergerakan barang (Stock In / Stock Out).',
-        'Optimasi query database relasional menggunakan Eloquent ORM dengan eager loading untuk mencegah N+1 problem.',
-        'Reporting dan ekspor rekap inventaris berkala ke format PDF / Excel.'
-      ],
-      role: 'Fullstack Developer & Database Architect',
-      status: 'Selesai & Teruji',
-      githubUrl: 'https://github.com/vilaryaldino/Inventaris-Gudang'
+      status: 'Production / Deployed'
     },
     payroll: {
       title: 'Sistem Payroll HRD',
       category: 'Human Resource & Payroll Management',
       tech: ['Laravel', 'PHP 8.x', 'MySQL', 'Blade Engine', 'Vite', 'JavaScript', 'Excel Import Engine'],
+      image: 'assets/img/payroll-preview.webp',
       summary: 'Sistem otomasi penggajian (payroll) dan manajemen kepegawaian perusahaan berbasis web untuk memproses data presensi, kompensasi kerja lembur, tunjangan kehadiran, dan pelaporan slip gaji secara presisi.',
       features: [
         'Manajemen master data karyawan, divisi perusahaan, kalender hari libur, dan jadwal multi-shift kerja yang dinamis.',
@@ -56,13 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cetak slip lembur & rekapitulasi gaji karyawan terintegrasi, siap pakai untuk kebutuhan audit HRD dan bagian akuntansi.'
       ],
       role: 'Fullstack Laravel Developer & System Analyst',
-      status: 'Selesai & Teruji',
-      githubUrl: 'https://github.com/vilaryaldino/PayrollHRD'
+      status: 'Selesai & Teruji'
     },
     acwa: {
       title: 'Web Company Profile (ACWA International)',
       category: 'Corporate Website & CMS',
       tech: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
+      image: 'assets/img/acwa-preview.webp',
       summary: 'Pengembangan website profil perusahaan profesional yang responsif, berkinerja tinggi, dan teroptimasi SEO untuk ACWA International.',
       features: [
         'Arsitektur MVC yang rapi dan terstruktur berbasis framework CodeIgniter.',
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Sistem Informasi Profil Sekolah',
       category: 'Education Portal & Database System',
       tech: ['PHP', 'MySQL', 'Fullstack Web', 'JavaScript', 'Tailwind/CSS', 'Database Design'],
+      image: 'assets/img/sekolah-preview.webp',
       summary: 'Pengembangan basis data dan sistem informasi portal profil sekolah secara Fullstack guna memfasilitasi publikasi kegiatan akademik dan keterbukaan informasi publik.',
       features: [
         'Perancangan skema database relasional ternormalisasi (3NF) untuk data siswa, guru, dan mata pelajaran.',
@@ -412,13 +414,31 @@ document.addEventListener('DOMContentLoaded', () => {
         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">${escapeHtml(project.summary)}</p>
       </div>
 
+      ${project.image ? `
+        <div style="margin-bottom: 1.5rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background: var(--bg-secondary); box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: var(--accent-cyan);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <span>Tampilan Antarmuka Sistem (Antarmuka Live)</span>
+            </div>
+            <a href="${escapeHtml(project.image)}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 0.25rem;" title="Buka resolusi penuh di tab baru">
+              <span>Resolusi Penuh</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          <a href="${escapeHtml(project.image)}" target="_blank" rel="noopener noreferrer" style="display: block; cursor: zoom-in;" title="Klik untuk memperbesar">
+            <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)}" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: contain; background: #0f172a;" loading="lazy">
+          </a>
+        </div>
+      ` : ''}
+
       <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan);">
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;">PERAN & STATUS PROYEK:</p>
         <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary);">${escapeHtml(project.role)} &bull; <span style="color: var(--accent-emerald);">${escapeHtml(project.status)}</span></p>
       </div>
 
       <div style="margin-bottom: 1.5rem;">
-        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;">Fitur Kunci & Arsitektur:</h4>
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;">Fitur Unggulan Sistem:</h4>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem;">
           ${project.features.map(f => `
             <li style="display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
@@ -429,23 +449,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </ul>
       </div>
 
-      <div style="margin-bottom: 1.25rem;">
+      <div>
         <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;">Teknologi Terkait:</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
           ${project.tech.map(t => `<span class="project-tag" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25); color: var(--accent-cyan);">${escapeHtml(t)}</span>`).join('')}
         </div>
       </div>
-
-      ${project.githubUrl ? `
-        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
-          <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-            <span>Buka Source Code di GitHub</span>
-          </a>
-        </div>
-      ` : ''}
     `;
 
     modalOverlay.classList.add('open');
@@ -482,6 +491,43 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
         closeProjectModal();
       }
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     11. Project Category Filter Logic
+     -------------------------------------------------------------------------- */
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  if (filterTabs.length > 0 && projectCards.length > 0) {
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetCategory = tab.getAttribute('data-filter');
+
+        // Update active tab button state
+        filterTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        // Filter cards
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (targetCategory === 'all' || category === targetCategory) {
+            card.classList.remove('is-hidden');
+            card.classList.remove('fade-in');
+            // Force browser reflow to re-trigger fade-in animation
+            void card.offsetWidth;
+            card.classList.add('fade-in');
+          } else {
+            card.classList.add('is-hidden');
+            card.classList.remove('fade-in');
+          }
+        });
+      });
     });
   }
 
