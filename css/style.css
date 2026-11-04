@@ -756,41 +756,34 @@ button, input, textarea {
   transform: scale(1.02);
 }
 
-/* Floating Badges with Glassmorphism */
+/* Showcase Badges Container - Mobile First: Flows cleanly below photo with zero occlusion */
+.showcase-badges-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  .showcase-badges-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .badge-float {
-  position: absolute;
-  padding: 0.65rem 0.95rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.75rem 0.95rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  z-index: 3;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-[data-theme="dark"] .badge-float {
-  background: rgba(18, 18, 21, 0.88);
-  border-color: rgba(63, 63, 70, 0.65);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .badge-float:hover {
+  border-color: var(--border-hover);
   transform: translateY(-2px);
-}
-
-.badge-float-top {
-  top: 1rem;
-  left: 1rem;
-}
-
-.badge-float-bottom {
-  bottom: 1rem;
-  right: 1rem;
 }
 
 .badge-float-icon {
@@ -833,6 +826,40 @@ button, input, textarea {
   color: var(--text-muted);
   font-weight: 500;
   line-height: 1.2;
+}
+
+/* On Desktop (>= 1024px), float badges at the outer edges for executive spotlight effect */
+@media (min-width: 1024px) {
+  .showcase-badges-wrap {
+    display: block;
+    margin-top: 0;
+  }
+
+  .badge-float {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+    z-index: 4;
+  }
+
+  [data-theme="dark"] .badge-float {
+    background: rgba(18, 18, 21, 0.88);
+    border-color: rgba(63, 63, 70, 0.65);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .badge-float-top {
+    top: 1.5rem;
+    left: -1.5rem;
+  }
+
+  .badge-float-bottom {
+    bottom: 4.85rem;
+    right: -1.5rem;
+  }
 }
 
 /* Showcase Footer Strip */
