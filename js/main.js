@@ -495,43 +495,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     11. Project Category Filter Logic
-     -------------------------------------------------------------------------- */
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  if (filterTabs.length > 0 && projectCards.length > 0) {
-    filterTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetCategory = tab.getAttribute('data-filter');
-
-        // Update active tab button state
-        filterTabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        projectCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetCategory === 'all' || category === targetCategory) {
-            card.classList.remove('is-hidden');
-            card.classList.remove('fade-in');
-            // Force browser reflow to re-trigger fade-in animation
-            void card.offsetWidth;
-            card.classList.add('fade-in');
-          } else {
-            card.classList.add('is-hidden');
-            card.classList.remove('fade-in');
-          }
-        });
-      });
-    });
-  }
-
-  /* --------------------------------------------------------------------------
      11. Interactive 3D Tilt Effect for Bento Cards
      -------------------------------------------------------------------------- */
   const tiltElements = document.querySelectorAll('[data-tilt]');
@@ -578,6 +541,381 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* --------------------------------------------------------------------------
+     13. Executive Timeline Slider & 2-Item Pagination Controller (#activities)
+     -------------------------------------------------------------------------- */
+  const initTimelineSlider = () => {
+    const timelineViewport = document.getElementById('timeline-slider-viewport');
+    const timelineTrack = document.getElementById('timeline-slider-track');
+    const timelineSlides = document.querySelectorAll('.timeline-slide');
+    const timelinePrevBtn = document.getElementById('timeline-prev-btn');
+    const timelineNextBtn = document.getElementById('timeline-next-btn');
+    const timelineRangeText = document.getElementById('timeline-range-text');
+    const timelinePills = document.querySelectorAll('#timeline-page-pills .timeline-pill');
+    const timelineBottomSwitchBtn = document.getElementById('timeline-bottom-switch-btn');
+    const timelineBottomBadge = document.getElementById('timeline-bottom-badge');
+    const timelineBottomTitle = document.getElementById('timeline-bottom-title');
+    const timelineBottomBtnText = document.getElementById('timeline-bottom-btn-text');
+    const timelineBottomBtnIcon = document.getElementById('timeline-bottom-btn-icon');
+
+    if (!timelineTrack || timelineSlides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = timelineSlides.length;
+
+    const pageMeta = [
+      {
+        range: 'Menampilkan 1 – 2 dari 6 Aktivitas',
+        badge: 'Halaman 1 dari 3 (Milestone 1 – 2)',
+        title: 'Ingin melihat pengabdian masyarakat (ABDIMAS) dan kepanduan?',
+        btnText: 'Lihat Aktivitas Selanjutnya (3 – 4)',
+        nextIcon: true,
+        targetNext: 1
+      },
+      {
+        range: 'Menampilkan 3 – 4 dari 6 Aktivitas',
+        badge: 'Halaman 2 dari 3 (Milestone 3 – 4)',
+        title: 'Ingin melihat sosialisasi expo kampus dan IT support laboratorium?',
+        btnText: 'Lihat Aktivitas Selanjutnya (5 – 6)',
+        nextIcon: true,
+        targetNext: 2
+      },
+      {
+        range: 'Menampilkan 5 – 6 dari 6 Aktivitas',
+        badge: 'Halaman 3 dari 3 (Milestone 5 – 6)',
+        title: 'Telah meninjau seluruh rekam jejak aktivitas kampus',
+        btnText: 'Kembali ke Aktivitas Awal (1 – 2)',
+        nextIcon: false,
+        targetNext: 0
+      }
+    ];
+
+    const updateSliderHeight = () => {
+      const activeSlide = timelineSlides[currentSlide];
+      if (activeSlide && timelineViewport) {
+        timelineViewport.style.height = `${activeSlide.offsetHeight}px`;
+      }
+    };
+
+    const goToSlide = (index, shouldScroll = false) => {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlide = index;
+
+      timelineTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      timelineSlides.forEach((slide, i) => {
+        if (i === currentSlide) {
+          slide.classList.add('is-active');
+          slide.querySelectorAll('.timeline-step').forEach(step => {
+            step.classList.add('active');
+          });
+        } else {
+          slide.classList.remove('is-active');
+        }
+      });
+
+      if (timelinePrevBtn) timelinePrevBtn.disabled = currentSlide === 0;
+      if (timelineNextBtn) timelineNextBtn.disabled = currentSlide === totalSlides - 1;
+
+      timelinePills.forEach((pill, i) => {
+        const isActive = i === currentSlide;
+        pill.classList.toggle('active', isActive);
+        pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      const meta = pageMeta[currentSlide] || pageMeta[0];
+      if (timelineRangeText) timelineRangeText.textContent = meta.range;
+      if (timelineBottomBadge) timelineBottomBadge.textContent = meta.badge;
+      if (timelineBottomTitle) timelineBottomTitle.textContent = meta.title;
+      if (timelineBottomBtnText) timelineBottomBtnText.textContent = meta.btnText;
+      if (timelineBottomBtnIcon) {
+        timelineBottomBtnIcon.style.transform = meta.nextIcon ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+
+      setTimeout(updateSliderHeight, 60);
+
+      if (shouldScroll) {
+        const activitiesSec = document.getElementById('activities');
+        if (activitiesSec) {
+          const headerOffset = 90;
+          const elementPosition = activitiesSec.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    if (timelinePrevBtn) {
+      timelinePrevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    }
+    if (timelineNextBtn) {
+      timelineNextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+    }
+
+    timelinePills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const targetPage = parseInt(pill.getAttribute('data-page'), 10);
+        if (!isNaN(targetPage)) goToSlide(targetPage);
+      });
+    });
+
+    if (timelineBottomSwitchBtn) {
+      timelineBottomSwitchBtn.addEventListener('click', () => {
+        const meta = pageMeta[currentSlide] || pageMeta[0];
+        goToSlide(meta.targetNext, true);
+      });
+    }
+
+    // Touch Swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    timelineViewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    timelineViewport.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 45) {
+        if (swipeDistance < 0 && currentSlide < totalSlides - 1) {
+          goToSlide(currentSlide + 1);
+        } else if (swipeDistance > 0 && currentSlide > 0) {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    }, { passive: true });
+
+    goToSlide(0);
+    window.addEventListener('resize', updateSliderHeight);
+    window.addEventListener('load', updateSliderHeight);
+    timelineViewport.querySelectorAll('img').forEach(img => {
+      if (img.complete) updateSliderHeight();
+      else img.addEventListener('load', updateSliderHeight);
+    });
+  };
+  initTimelineSlider();
+
+  /* --------------------------------------------------------------------------
+     14. Portfolio Project Slider & 2-Item Pagination Controller (#portfolio)
+     -------------------------------------------------------------------------- */
+  const initPortfolioSlider = () => {
+    const portfolioViewport = document.getElementById('portfolio-slider-viewport');
+    const portfolioTrack = document.getElementById('portfolio-slider-track');
+    const portfolioSlides = document.querySelectorAll('.portfolio-slide');
+    const portfolioPrevBtn = document.getElementById('portfolio-prev-btn');
+    const portfolioNextBtn = document.getElementById('portfolio-next-btn');
+    const portfolioRangeText = document.getElementById('portfolio-range-text');
+    const portfolioPills = document.querySelectorAll('#portfolio-page-pills .timeline-pill');
+    const portfolioBottomSwitchBtn = document.getElementById('portfolio-bottom-switch-btn');
+    const portfolioBottomBadge = document.getElementById('portfolio-bottom-badge');
+    const portfolioBottomTitle = document.getElementById('portfolio-bottom-title');
+    const portfolioBottomBtnText = document.getElementById('portfolio-bottom-btn-text');
+    const portfolioBottomBtnIcon = document.getElementById('portfolio-bottom-btn-icon');
+    const portfolioControlsBar = document.getElementById('portfolio-controls-bar');
+    const portfolioBottomNav = document.getElementById('portfolio-bottom-nav');
+
+    if (!portfolioTrack || portfolioSlides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = portfolioSlides.length;
+
+    const pageMeta = [
+      {
+        range: 'Menampilkan 1 – 2 dari 5 Proyek',
+        badge: 'Halaman 1 dari 3 (Proyek 1 – 2)',
+        title: 'Ingin melihat sistem payroll HRD dan web profil perusahaan?',
+        btnText: 'Lihat Proyek Selanjutnya (3 – 4)',
+        nextIcon: true,
+        targetNext: 1
+      },
+      {
+        range: 'Menampilkan 3 – 4 dari 5 Proyek',
+        badge: 'Halaman 2 dari 3 (Proyek 3 – 4)',
+        title: 'Ingin melihat portal profil sekolah dan arsitektur database?',
+        btnText: 'Lihat Proyek Selanjutnya (5)',
+        nextIcon: true,
+        targetNext: 2
+      },
+      {
+        range: 'Menampilkan 5 dari 5 Proyek',
+        badge: 'Halaman 3 dari 3 (Proyek 5)',
+        title: 'Telah meninjau seluruh portofolio sistem dan aplikasi',
+        btnText: 'Kembali ke Proyek Awal (1 – 2)',
+        nextIcon: false,
+        targetNext: 0
+      }
+    ];
+
+    const updateSliderHeight = () => {
+      const activeSlide = portfolioSlides[currentSlide];
+      if (activeSlide && portfolioViewport) {
+        portfolioViewport.style.height = `${activeSlide.offsetHeight}px`;
+      }
+    };
+
+    const goToSlide = (index, shouldScroll = false) => {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlide = index;
+
+      portfolioTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      portfolioSlides.forEach((slide, i) => {
+        if (i === currentSlide) {
+          slide.classList.add('is-active');
+          slide.querySelectorAll('.project-card').forEach(card => {
+            card.classList.add('active');
+          });
+        } else {
+          slide.classList.remove('is-active');
+        }
+      });
+
+      if (portfolioPrevBtn) portfolioPrevBtn.disabled = currentSlide === 0;
+      if (portfolioNextBtn) portfolioNextBtn.disabled = currentSlide === totalSlides - 1;
+
+      portfolioPills.forEach((pill, i) => {
+        const isActive = i === currentSlide;
+        pill.classList.toggle('active', isActive);
+        pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      const meta = pageMeta[currentSlide] || pageMeta[0];
+      if (portfolioRangeText) portfolioRangeText.textContent = meta.range;
+      if (portfolioBottomBadge) portfolioBottomBadge.textContent = meta.badge;
+      if (portfolioBottomTitle) portfolioBottomTitle.textContent = meta.title;
+      if (portfolioBottomBtnText) portfolioBottomBtnText.textContent = meta.btnText;
+      if (portfolioBottomBtnIcon) {
+        portfolioBottomBtnIcon.style.transform = meta.nextIcon ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+
+      setTimeout(updateSliderHeight, 60);
+
+      if (shouldScroll) {
+        const portfolioSec = document.getElementById('portfolio');
+        if (portfolioSec) {
+          const headerOffset = 90;
+          const elementPosition = portfolioSec.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    if (portfolioPrevBtn) {
+      portfolioPrevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    }
+    if (portfolioNextBtn) {
+      portfolioNextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+    }
+
+    portfolioPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const targetPage = parseInt(pill.getAttribute('data-page'), 10);
+        if (!isNaN(targetPage)) goToSlide(targetPage);
+      });
+    });
+
+    if (portfolioBottomSwitchBtn) {
+      portfolioBottomSwitchBtn.addEventListener('click', () => {
+        const meta = pageMeta[currentSlide] || pageMeta[0];
+        goToSlide(meta.targetNext, true);
+      });
+    }
+
+    // Touch Swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    portfolioViewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    portfolioViewport.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 45) {
+        if (swipeDistance < 0 && currentSlide < totalSlides - 1) {
+          goToSlide(currentSlide + 1);
+        } else if (swipeDistance > 0 && currentSlide > 0) {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Category Filter Integration with Slider
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const allProjectCards = document.querySelectorAll('.project-card');
+
+    if (filterTabs.length > 0) {
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetCategory = tab.getAttribute('data-filter');
+
+          filterTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          if (targetCategory === 'all') {
+            portfolioSlides.forEach(slide => {
+              slide.style.display = '';
+            });
+            allProjectCards.forEach(card => {
+              card.classList.remove('is-hidden');
+            });
+            if (portfolioControlsBar) portfolioControlsBar.style.display = '';
+            if (portfolioBottomNav) portfolioBottomNav.style.display = '';
+            goToSlide(0);
+          } else {
+            portfolioSlides.forEach(slide => {
+              const matchingCards = slide.querySelectorAll(`.project-card[data-category="${targetCategory}"]`);
+              if (matchingCards.length > 0) {
+                slide.style.display = '';
+                slide.classList.add('is-active');
+              } else {
+                slide.style.display = 'none';
+                slide.classList.remove('is-active');
+              }
+            });
+
+            allProjectCards.forEach(card => {
+              const cat = card.getAttribute('data-category');
+              if (cat === targetCategory) {
+                card.classList.remove('is-hidden');
+              } else {
+                card.classList.add('is-hidden');
+              }
+            });
+
+            let firstVisibleIndex = -1;
+            portfolioSlides.forEach((slide, idx) => {
+              if (slide.style.display !== 'none' && firstVisibleIndex === -1) {
+                firstVisibleIndex = idx;
+              }
+            });
+            if (firstVisibleIndex !== -1) {
+              goToSlide(firstVisibleIndex);
+            }
+          }
+        });
+      });
+    }
+
+    goToSlide(0);
+    window.addEventListener('resize', updateSliderHeight);
+    window.addEventListener('load', updateSliderHeight);
+    portfolioViewport.querySelectorAll('img').forEach(img => {
+      if (img.complete) updateSliderHeight();
+      else img.addEventListener('load', updateSliderHeight);
+    });
+  };
+  initPortfolioSlider();
 
   /* Helper function to prevent XSS in dynamic templates */
   function escapeHtml(str) {
